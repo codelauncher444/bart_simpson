@@ -1,98 +1,168 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8"> <!-- more modern then <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->  
-        <title>TODO Your 1995 Home Page</title>
-        <meta name="description" content="TODO Description. This profile-page is a homage to the earliest web designers who were working without CSS & JS which were only invented in 1994/5."/> <!-- Meta description tips: https://www.coderseo.com/meta-description-generator -->
-        <!-- <meta name="robots" content="noindex"> robots.txt file overrides-->
-        <link rel="icon" href="media/favicon.ico" type="image/x-icon"> 
-        <base target="_blank"> <!-- only keep with footer script excluding internal links -->
+        <meta charset="utf-8">
+        <title>Bart Simpsons</title>
+        <link rel="icon" href="media/favicon.png" type="image/x-icon"> 
+        <base target="_blank"> 
+        <style> 
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                line-height: 1.8;
+                margin: 20px;
+                background-color: #f9f9f9;
+            }
+            h1{
+                color: #ffcc00;
+            }
+            h2{
+                color:#3333cc ;
+            }
+            blockquote {
+                font-style: italic;
+                color: #666666;
+                border-left: 10px solid  #ffcc00 ;
+                padding-left: 10px;
+                margin: 20px 0;
+            }
+            ul{
+                list-style-type: square;
+            }
+            .social-icons img{
+                margin: 0 10px;
+            }
+            footer {
+                margin-top: 20px;
+                text-align: center;
+                font-size: 12px;
+                color: #555555;
+            }
 
-            <!-- TODO uncomment below once created New File called styles.css 
-             style lists to have more space, paragraphs more margin, link color different -->
-            <!-- <link rel="stylesheet" href="styles.css"> -->
-        <style>
-            /* or you could first try add internal CSS here */
+            p{
+                font-size: 16px;
+            }
+            .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 10px;
+            }
+            .gallery img {
+                height: 150px;
+                width: auto;
+                margin: 10px;
+                border: 2px solid #ddd;
+                border-radius: 5px;
+            } 
+
         </style>
-
     </head>
+
     <body>
-        <h1>Peter Griffin</h1>
-        <h2>An HTML webpage from before the dawn of CSS & JS</h2>
-        <img src="media/tamara95.png" height="150">
+        <h1>Bart Simpson</h1>
+        <h2>Bart Simpson's <strong>
+            SPLENDID
+        </strong> Page</h2>
+        <img src="media/bart_simpson.png" height="250">
+        <div class="audio-container">
+            <div class="audio-player">
+                <audio controls>
+                    <source src="media/audio.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+        <hr>    
+        <h2>About Bart Simpson</h2>
+        <p style="font-size: 17px;">
+            Bartholomew JoJo "Bart" Simpson (born April 1 ,1979 or February 23, 1979) is the mischievous, rebellious, misunderstood, disruptive and "potentially dangerous" oldest child of the Simpson family in The Simpsons. He is the only son of Homer and Marge Simpson, and the older brother of Lisa and Maggie. Bart is known for his love for skateboarding, and rebellious attitude. Despite his antics, Bart has shown moments of intelligence and compassion, proving that there's more to him than just pranks. He attends Springfield Elementary School, where he often clashes with Principal Skinner and his teacher, Mrs. Krabappel.
+        </p> <!-- This text is inspired from https://simpsons.fandom.com/wiki/Bart_Simpson -->
         <hr>
-        <h2><em>The original Silicon Valley template for the web..</em></h2>
+        <h2>Well-Known Quotes</h2>
+        <blockquote>
+            "I Didn't Do It"
+        </blockquote>
+        <blockquote>"I Can't Promise I'll Try, But I'll Try To Try"</blockquote>
+        <blockquote>"I'm Bart Simpson, Who The Hell Are You?"</blockquote>
         <hr>
-        <h2>
+
+        <h2>Bart's School Report</h2>
         <ul>
-            <li><a href="http://www.geom.uiuc.edu/~munzner/">Tamara's original page</a></li>
-            <li><a href="http://www-graphics.stanford.edu/~munzner/">dark mode alternative</a></li>
+            <li>Maths: D</li>
+            <li>Science: C </li>
+            <li>Behaviour: Parents will be contacted</li>
+            <li>PE: A</li>
         </ul>
         <hr>
-        Bio Blurb</h2>
-        <p>If you wanted to be part of the invention of a lifetime, Stanford in 1991 was the right place and right time. Given the gender skew in the university CS dept, Tamara Munzner might have been one of the first females to publish a personal website, but to this unassuming data visualiser who'd go on to a successful academic career in Silicon Valley and beyond, it was no big deal and "we just called them home pages". So she told me during my Master's when she gave me her blessing to publish a homage to her website, last modified in 1995 - the birth year of myself and, following hot on CSS's infant heels, JS the thing that would really move the web forward to the potent interactive wonderland we know today - under Creative Commons.  This licenses other young people to build on this template and get started exploring - without the complexity and ethical muddle of modern frameworks - the possibilities of creating on the web by simply modifying HTML content and adding styles and scripts to enhance it. </p>
-        <!-- Bio template: (S)he received a blah in Y from place in 20XX. (s)he was the "blah" and was one of the authors of the nationwide expansion of Corp Inc. Recently, (s)he has been working on Z. -->
+        <h2>Interests and Hobbies</h2>
+            <p style="font-size: 16px;">
+                Bart has a wide range of interests and hobbies that keep him busy and entertained. Here are some of the things he loves to do:
+            </p>
+            <ul style="list-style-type: circle; font-size: 16px;">
+                <li><strong>Skateboarding:</strong> Bart is rarely seen without his skateboard. He loves performing tricks and stunts all around Springfield.</li>
+                <li><strong>Pranking:</strong> Known for his mischievous nature, Bart enjoys pulling pranks on his family, friends, and even his school principal.</li>
+                <li><strong>Comics and Superheroes:</strong> Bart is an avid reader of comic books and has a particular fondness for the superhero Radioactive Man.</li>
+                <li><strong>Video Games:</strong> Like many kids his age, Bart loves playing video games, especially the violent and action-packed ones.</li>
+                <li><strong>Watching TV:</strong> Bart enjoys watching TV shows, with his favorites being Krusty the Clown and Itchy & Scratchy.</li> <!-- Searching for different hobbies of Bart has been aided by ChatGPT from OpenAI-->
+            </ul>
+            <p style="font-size: 16px;">
+                Despite his troublemaking ways, Bart's hobbies reflect his energetic and adventurous spirit.
+            </p>
         <hr>
-        <h2>Links</h2>
-        Some creative interpretations:
-        <ul>
-        <li> <a href="https://bossificator1412.github.io/IndianaJonesWeb/website/">Indiana Jones academic home page</a> (external link)</li>
-        <li> <a href="/index.html"><b>bold</b> hom(e p)age</a> (internal link)</li>
-        </ul>
+        <section>
+            <h2>Image Gallery</h2>
+            <div class="gallery">
+                <figure>
+                <img src="media/bart_skateboard.gif" alt="Bart Skateboarding">
+                <figcaption>Bart Skateboarding</figcaption>
+                </figure>
+                <figure>
+                <img src="media/bart_prank.jpg" alt="Bart Pranking">
+                <figcaption>Bart Pranking</figcaption>
+                </figure>
+                <figure>
+                <img src="media/bart_at_school.avif" alt="Bart at School">
+                <figcaption>Bart at School</figcaption>
+                </figure>
+                <figure>
+                <img src="media/bart_family.jpg" alt="Bart with Family">
+                <figcaption>Bart Spending Time with Family</figcaption>
+                </figure>
+            </div>
+        </section>
+
         <hr>
-        <h2>Real Life</h2>
-        <p> Remember you ain't the first person to make a webpage. Start from this template:</p>
-        <ol>
-            <li>
-                <b>Copy Code</b>
-                <ul>
-                    <li> Right-Click > View Page Source</li>
-                    <li>Select All > Copy&Paste into text Editor</li>
-                </ul>
-            </li>
-            <li><b>Customize - leaving CC license - and publish eg free GitHub Pages</b></li>
-        </ol>
+        <h2>Bart's Best Moments</h2>
+        <a href="https://www.youtube.com/watch?v=IXtCdxHSayg" target="_blank" style="text-decoration: none; color: black;">
+            <img src="https://www.iconpacks.net/icons/2/free-youtube-logo-icon-2431-thumb.png" alt="YouTube Logo" style="vertical-align: middle; width: 60px; height: 60px;">
+            <span style="font-size: 24px; vertical-align: middle;">Watch Best Bart Moments</span>
+        </a> <!-- I did not want to embed the video directly into my webpage before taking permission from the creator of the video-->
         <hr>
-        <address>
-        <h2>
-        Contact Info
-        </h2>
-        <pre><!-- preformatted text, browser displays line breaks like text editor -->
-            <i>Name
-            Address
-            Location
-            Contact method</i>
-        </pre>
-        </address>
-        <!-- Social Logos. Bottom two from httpsgetdrawings.com/pixelated-icons -->
-        <hr>
+        <section>
+            <h2>Contact Info</h2>
+            <address>
+                <p>
+                    742 Evergreen Terrace <br>
+                    Springfield, USA <br>
+                    <strong>Phone:</strong> My Parents Did Not Buy Me One Yet <br>
+                    <strong>Email:</strong> simpsonbart@tempmail.com
+                </p>
+            </address>
+        </section>
+
+        
+
         <a href="https://github.com/"><img src="https://w4.rner.me/index_files/github.png" height="50" alt="GitHub"></a>
         <a rev="Subdocument" href="https://linkedin.com/in/"><img src="https://w4.rner.me/index_files/linkedin.png" height="50" alt="LinkedIn"></a>
         <a href="https://www.fediverse.to/"><img src="https://w4.rner.me/index_files/fediverse.png" height="50" alt="Fediverse"></a>
         <hr>
         <br>
         <small> 
-        Last modified: Mon Jun 25 10:11:00 pm 2024  <!-- TODO update -->
-            <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="/">this website</a> © 2023 is based on w4rner's <a
+        Last modified: When Bart was not sleeping
+            <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="/">this website</a> © 2024 is based on w4rner's <a
                 href="http://w4.rner.me/ninety-five.html">
                 'Ninety Five' template</a> after <a href="http://www.geom.uiuc.edu/~munzner/">Tamara Munzner's</a> and therefore is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a></p>
-            <i> "Nanos Gigantum Humeris Insidentes" </i>
         </small>
         <br>
-
         </address>
-
-        <!-- <div id="footer"></div> -->
-
-        <!-- BODY END -->
-        <script>
-        var links = document.links;
-        for (var i = 0; i < links.length; i++) {
-        if (links[i].hostname == window.location.hostname) // set other exclusion criteria by adding or conditions within the if parens with ||
-        {
-            links[i].target = "_self";
-        }
-        }
-        </script>
     </body>
 </html>
