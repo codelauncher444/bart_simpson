@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Design inspired from https://codepen.io/Bilal1909/pen/KKVRbeQ However, I tried to modify and re-write the code as much as possible while ensuring I understand each line of code-->
+<!-- Since I will not be in the class for the second week, I will try to explain the full code line-by-line in the end of my code -->  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bart- Image Gallery</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            background:
+                radial-gradient(70% 1% at 30% 5%, #c632 80%, #0000 0) 50% 50% / 100% 10%,
+                radial-gradient(60% 1.3% at 30% 5%, #c631 80%, #0000 0) 30% 50% / 70% 7.5%,
+                radial-gradient(50% 0.7% at 30% 5%, #c631 80%, #0000 0) 30% 50% / 50% 17.5%,
+                radial-gradient(60% 1% at 30% 5%, #c631 80%, #0000 0) 0% 10% / 60% 9%,
+                radial-gradient(80% 1.3% at 30% 5%, #a411 80%, #0000 0) 70% 20% / 66% 7.5%,
+                radial-gradient(100% 1.1% at 30% 5%, #c631 80%, #0000 0) 0% 17% / 70% 12.5%,
+                radial-gradient(60% 3% at 50% 0, #c631 80%, #0000 0) 0% 10% / 70% 7.5% repeat-y,
+                radial-gradient(40% 4% at 70% 5%, #b521 80%, #0000 0) 100% 2% / 70% 5%,
+                radial-gradient(80% 50% at 20% 20%, #c0824334 10%, #0000 25%),
+                radial-gradient(140% 50% at 90% 45%, #c0824324 10%, #0000 15%),
+                radial-gradient(100% 50% at 70% 50%, #c0824324 10%, #0000 15%),
+                linear-gradient(to top right, #0001, #ffc5),
+                #f0a274;
+        }
+
+        .header {
+            color: white;
+            font-size: 45px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .gallery-wrapper {
+            align-items: center;
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .carousel {
+            transform-style: preserve-3d;
+            animation: rotate 30s linear infinite;
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+
+        .carousel span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: center;
+            transform-style: preserve-3d;
+            transform: rotateY(calc(var(--i) * 45deg)) translateZ(350px);
+        }
+
+        .carousel span img {
+            position: absolute;
+            border-radius: 10px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: 2s;
+            object-fit: cover;
+        }
+
+        .carousel span:hover img {
+            transform: translateY(-50px) scale(1.5);
+        }
+
+        .fixed-image-container {
+            left: 0;
+            bottom: 0;
+            position: fixed;
+        }
+
+        .fixed-bottom-left-img {
+            width: 200px;
+            height: auto;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: perspective(1000px) rotateY(0deg);
+            }
+            100% {
+                transform: perspective(1000px) rotateY(360deg);
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="header">Image Gallery</div>
+    <div class="gallery-wrapper">
+        <div class="carousel">
+            <span style="--i:1;"><img src="https://parade.com/.image/t_share/MTkwNTc5NjAzMjMxMTU2MDky/best-bart-simpson-pranks.jpg" alt="Bart Prank"></span>
+            <span style="--i:2;"><img src="https://m.media-amazon.com/images/M/MV5BNzRlNDJhOTUtOGI5MC00MjNkLThhNGUtMGE4YTUwMDRiMWNmXkEyXkFqcGdeQXVyMjYwNDA2MDE@._V1_.jpg" alt="Bart at School"></span>
+            <span style="--i:3;"><img src="https://www.liveabout.com/thmb/6aLipXkLeXmvOVUsIO1EEVpTVJg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/simpsons1920-58b5a0013df78cdcd87a03bc.jpg" alt="Bart with Family"></span>
+            <span style="--i:4;"><img src="https://i.pinimg.com/originals/e9/e0/3a/e9e03aadf69826913025c965f7a08294.jpg" alt="Bart Skateboarding"></span>
+            <span style="--i:5;"><img src="https://static1.srcdn.com/wordpress/wp-content/uploads/2019/07/The-Worst-Things-Bart-Simpson-Has-Ever-Done-Ranked.jpg" alt="Bart riding a car"></span>
+            <span style="--i:6;"><img src="https://media.rbl.ms/image?u=%2Ffiles%2F2016%2F08%2F27%2F636079265927860229-2129125623_bart-gets-an-f-pic.png&ho=https%3A%2F%2Faz616578.vo.msecnd.net&s=14&h=29c10d20187cb189d87f41eb7e1164c782be9e835e4d566ec65db56706886ddb&size=980x&c=2546813386" alt="Bart at School"></span>
+            <span style="--i:7;"><img src="https://mrwallpaper.com/images/hd/iconic-bart-simpson-at-school-v9qypuurat58w91f.jpg" alt="Bart at class"></span>
+            <span style="--i:8;"><img src="https://m.media-amazon.com/images/M/MV5BMjMzOTMzNDI4N15BMl5BanBnXkFtZTcwODQ2NTA5OA@@._V1_.jpg" alt="Bart at School again"></span>
+        </div>  
+    </div> 
+    <div class="fixed-image-container">
+        <a href="menu.html">
+            <img src="media/image-Photoroom.png" alt="Bottom Left Image" class="fixed-bottom-left-img">
+        </a>
+    </div>
+</body>
+</html>
+<!--
+- The title element has been styled with a easly perceivable white and large and has been given a top margin for spacing
+-The gallery wrapper is a flex xontainer where the content is centerd both vertically and horizontally ensuring the 
+position of the carousel is just on the center
+-The carousel element has been styled specially ro have a three dimensional, circular transformation effect
+-For perfect fit, each image (which will be accessed with an external URL) styled for the container with a border radious and transtion 
+effect for smooth movements
+-Zoom-in effect is aimed to be achieved. When an image is hovered over, it scales up and moves slightly upwards.
+-The carousel rotates around the Y-axis continuously with spinning effect
+-The keyframes for this anmation define a full 360-degree rotation over 30 seconds.
+-->

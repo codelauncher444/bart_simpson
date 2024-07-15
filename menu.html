@@ -1,0 +1,198 @@
+<!-- Design inspired from https://codepen.io/yudizsolutions/pen/wvZEeNE However, I tried to modify and re-write the code as much as possible while ensuring I understand each line of code-->
+<!-- Since I will not be in the class for the second week, I will try to explain the full code line-by-line in the end of my code -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bart-Menu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      height: 100vh;
+      overflow-x: hidden;
+      color: #e7e7e7;
+      font-family: "Lato", sans-serif;
+      font-weight: 400;
+      background:
+            radial-gradient(70% 1% at 30% 5%, #c632 80%, #0000 0) 50% 50% / 100% 10%,
+            radial-gradient(60% 1.3% at 30% 5%, #c631 80%, #0000 0) 30% 50% / 70% 7.5%,
+            radial-gradient(50% 0.7% at 30% 5%, #c631 80%, #0000 0) 30% 50% / 50% 17.5%,
+            radial-gradient(60% 1% at 30% 5%, #c631 80%, #0000 0) 0% 10% / 60% 9%,
+            radial-gradient(80% 1.3% at 30% 5%, #a411 80%, #0000 0) 70% 20% / 66% 7.5%,
+            radial-gradient(100% 1.1% at 30% 5%, #c631 80%, #0000 0) 0% 17% / 70% 12.5%,
+            radial-gradient(60% 3% at 50% 0, #c631 80%, #0000 0) 0% 10% / 70% 7.5% repeat-y,
+            radial-gradient(40% 4% at 70% 5%, #b521 80%, #0000 0) 100% 2% / 70% 5%,
+            radial-gradient(80% 50% at 20% 20%, #c0824334 10%, #0000 25%),
+            radial-gradient(140% 50% at 90% 45%, #c0824324 10%, #0000 15%),
+            radial-gradient(100% 50% at 70% 50%, #c0824324 10%, #0000 15%),
+            linear-gradient(to top right, #0001, #ffc5),
+            #f0a274;
+    }
+
+    section {
+      height: 100%;
+    }
+
+    .wrapper {
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      min-height: 710px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .main-heading {
+      margin-bottom: 40px;
+      text-align: center;
+      color: white;
+      font-size: 36px;
+    }
+
+    .sub-heading {
+      font-size: 30px;
+      margin-bottom: 20px;
+      font-weight: 600;
+      color: #d3d1d1;
+    }
+
+    .description {
+      color: #d3d1d1;
+      overflow: hidden;
+      font-size: 18px;
+      font-weight: 400;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+    }
+
+    .card-container {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      display: grid;
+      gap: 20px;
+    }
+
+    .card-link {
+      position: relative;
+      padding: 10px;
+      text-decoration: none;
+      height: 100%;
+      width: 100%;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .card-link:hover {
+      transform: scale(1.05);
+    }
+
+    .card-content {
+      border: 1px solid #1a5582;
+      padding: 40px;
+      width: 100%;
+      overflow: hidden;
+      background: linear-gradient( #FFA217, #CC7F09);
+      filter: drop-shadow(16px 16px 10px rgb(43, 42, 42));
+      height: 100%;
+      min-height: 300px;
+      border-radius: 20px;
+    }
+
+    .card-details {
+      position: relative;
+      z-index: 50;
+      height: 100%;
+    }
+
+    .card-details div {
+      height: 100%;
+    }
+
+    @media screen and (max-width: 991px) {
+      .card-container {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      .card-content {
+        padding: 30px 20px;
+      }
+
+      .main-heading {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <div class="wrapper">
+      <h1 class="main-heading"> Please Select your Bart Destination</h1>
+      <div class="card-container">
+        <a href="bio.html" class="card-link">
+          <div class="card-content">
+            <div class="card-details">
+              <div>
+                <h3 class="sub-heading">Biography</h3>
+                <p class="description">Discover Bart Simpson's biography</p>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a href="image_gallery.html" class="card-link">
+          <div class="card-content">
+            <div class="card-details">
+              <div>
+                <h3 class="sub-heading">Image Gallery</h3>
+                <p class="description">Explore a collection of Bart Simpson images showcasing his iconic antics, memorable moments, and playful personality</p>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a href="hobbies.html" class="card-link">
+          <div class="card-content">
+            <div class="card-details">
+              <div>
+                <h3 class="sub-heading">Hobbies and Interests</h3>
+                <p class="description">Learn about Bart Simpson's interests and hobbies</p>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a href="chatbot.html" class="card-link">
+          <div class="card-content">
+            <div class="card-details">
+              <div>
+                <h3 class="sub-heading">Bart Simpson Chatbot</h3>
+                <p class="description">Chat with AI-powered Bart Simpson chatbot, where you can experience Bart's witty remarks, mischievous advice, and playful conversations as if you're talking to the real troublemaker himself</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
+<!--
+-In the BG, the color scheme makes use of a light text on a textured background.The background is created with a mix of radial and 
+linear gradients which aimss to copy the textures and wood stains. I will be using this BG color and texture for other html files as well.
+-The section element takes up the full height of the viewport.The wrapper class has been used to center its content vertically and horizontally within a
+maximum width of 1200px. Flexbox is used to align and justfy its children elements.
+-The card container uses CSS Grid to arrange the cards in a two-column layout, which changes to a single column on narrower screens. This is an important 
+decision for responsive designs. Indeed, each card is an anchor tag styled to take up full height and width, with a padding and a scale-up effect on hover.
+-When the cursor is on the cards, they get larger. 
+-The main heding (h1 with class main-heading) is centered and has been colored white nd uses a large font for better visibility.
+-->

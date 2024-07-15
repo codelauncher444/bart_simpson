@@ -1,0 +1,339 @@
+<!-- Stacked Cards Design inspired from https://codepen.io/ecemgo/pen/yLWJvQx However, I tried to modify and re-write the code as much as possible while ensuring I understand each line of code-->
+<!-- Since I will not be in the class for the second week, I will try to explain the full code line-by-line in the end of my code -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bart-Hobbies and interests</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Quicksand:wght@300..700&display=swap");
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+            font-family: "Quicksand", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            overflow: clip;
+            display: flex;
+            justify-content: center;
+            background: 
+                radial-gradient(70% 1% at 30% 5%, #c632 80%, #0000 0) 50% 50% / 100% 10%,
+                radial-gradient(60% 1.3% at 30% 5%, #c631 80%, #0000 0) 30% 50% / 70% 7.5%,
+                radial-gradient(50% 0.7% at 30% 5%, #c631 80%, #0000 0) 30% 50% / 50% 17.5%,
+                radial-gradient(60% 1% at 30% 5%, #c631 80%, #0000 0) 0% 10% / 60% 9%,
+                radial-gradient(80% 1.3% at 30% 5%, #a411 80%, #0000 0) 70% 20% / 66% 7.5%,
+                radial-gradient(100% 1.1% at 30% 5%, #c631 80%, #0000 0) 0% 17% / 70% 12.5%,
+                radial-gradient(60% 3% at 50% 0, #c631 80%, #0000 0) 0% 10% / 70% 7.5% repeat-y,
+                radial-gradient(40% 4% at 70% 5%, #b521 80%, #0000 0) 100% 2% / 70% 5%,
+                radial-gradient(80% 50% at 20% 20%, #c0824334 10%, #0000 25%),
+                radial-gradient(140% 50% at 90% 45%, #c0824324 10%, #0000 15%),
+                radial-gradient(100% 50% at 70% 50%, #c0824324 10%, #0000 15%),
+                linear-gradient(to top right, #0001, #ffc5),
+                #f0a274;
+        }
+
+        main {
+            grid-template-rows: 1fr;
+            place-items: center;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .text-content {
+            padding-left: 120px;
+            color: black;
+        }
+
+        .text-content h1 {
+            font-size: clamp(2.5rem, 4vw, 6rem);
+            font-weight: 700;
+            background: -webkit-linear-gradient(0deg, #7e344a, #c0802d);
+            background-clip: text;
+            padding-left: 10px;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+            margin-bottom: 36px;
+        }
+
+        .text-content p {
+            line-height: 1.6;
+            padding-right: 100px;
+            font-size: clamp(0.9rem, 4vw, 1.2rem);
+        }
+
+
+        .card-stack {
+            position: relative;
+        }
+
+        .stack-card {
+            border-radius: 2rem;
+            box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25), 0 15px 20px 0 rgba(0, 0, 0, 0.125);
+            transition: transform 0.6s;
+            user-select: none;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            width: 350px;
+            height: 500px;
+        }
+
+        .stack-card img {
+            height: 100%;
+            border-radius: inherit;
+            object-fit: cover;
+            display: block;
+            width: 100%;
+        }
+
+        .stack-card:nth-last-child(n + 5) {
+            transform: translate(var(--x), -50%) scale(0.85);
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.01);
+            --x: calc(-50% + 90px);
+        }
+
+        .stack-card:nth-last-child(4) {
+            --x: calc(-50% + 60px);
+            transform: translate(var(--x), -50%) scale(0.9);
+        }
+
+        .stack-card:nth-last-child(3) {
+            --x: calc(-50% + 30px);
+            transform: translate(var(--x), -50%) scale(0.95);
+        }
+
+        .stack-card:nth-last-child(2) {
+            --x: calc(-50%);
+            transform: translate(var(--x), -50%) scale(1);
+        }
+
+        .stack-card:nth-last-child(1) {
+            --x: calc(-50% - 30px);
+            transform: translate(var(--x), -50%) scale(1.05);
+        }
+
+        .stack-card:nth-last-child(1) img {
+            box-shadow: 0 1px 5px 5px rgba(255, 193, 111, 0.5);
+        }
+
+        .card-swap {
+            animation: swap 1.3s ease-out forwards;
+        }
+
+        .fixed-image {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        .bottom-left-img {
+            width: 200px;
+            height: auto;
+        }
+
+        @keyframes swap {
+            30% {
+                transform: translate(calc(var(--x) - 250px), -50%) scale(0.85) rotate(-5deg) rotateY(65deg);
+            }
+
+            100% {
+                transform: translate(calc(var(--x) - 30px), -50%) scale(0.5);
+                z-index: -1;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            @keyframes swap {
+                30% {
+                    transform: translate(calc(var(--x) - 200px), -50%) scale(0.85) rotate(-5deg) rotateY(65deg);
+                }
+
+                100% {
+                    transform: translate(calc(var(--x) - 30px), -50%) scale(0.5);
+                    z-index: -1;
+                }
+            }
+        }
+
+        @media (max-width: 1050px) {
+            @keyframes swap {
+                30% {
+                    transform: translate(calc(var(--x) - 150px), -50%) scale(0.85) rotate(-5deg) rotateY(65deg);
+                }
+
+                100% {
+                    transform: translate(calc(var(--x) - 30px), -50%) scale(0.5);
+                    z-index: -1;
+                }
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .text-content {
+                padding-left: 80px;
+            }
+
+            .text-content p {
+                padding-right: 40px;
+            }
+
+            .stack-card {
+                width: 250px;
+                height: 380px;
+            }
+        }
+
+        @media (max-width: 1050px) {
+            .text-content {
+                padding-left: 60px;
+            }
+
+            .text-content p {
+                line-height: 1.5;
+            }
+
+            .stack-card {
+                width: 220px;
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 990px) {
+            .text-content p {
+                padding-right: 0;
+            }
+
+            .stack-card {
+                width: 200px;
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 950px) {
+            main {
+                grid-template-columns: 1fr;
+                grid-template-rows: 4fr 3fr;
+                grid-template-areas:
+                    "stack"
+                    "text";
+            }
+
+            .text-content {
+                grid-area: text;
+                text-align: center;
+                padding: 0 90px;
+            }
+
+            .card-stack {
+                grid-area: stack;
+            }
+        }
+
+        @media (max-width: 650px) {
+            main {
+                grid-template-rows: 1fr 1fr;
+            }
+
+            .text-content {
+                padding: 0 50px;
+            }
+
+            .text-content h1 {
+                padding-left: 0;
+            }
+
+            .stack-card {
+                width: 180px;
+                height: 260px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="text-content">
+            <h1>Hobbies and Interests</h1>
+            <p>Bart has a wide range of interests and hobbies that keep him busy and entertained. Here are some of the things he loves to do:</p>
+
+            <p><strong>Skateboarding</strong>: Bart is rarely seen without his skateboard. He loves performing tricks and stunts all around Springfield.</p>
+            <p><strong>Pranking</strong>: Known for his mischievous nature, Bart enjoys pulling pranks on his family, friends, and even his school principal.</p>
+            <p><strong>Comics and Superheroes</strong>: Bart is an avid reader of comic books and has a particular fondness for the superhero Radioactive Man.</p>
+            <p><strong>Games</strong>: Like many kids his age, Bart loves playing video games, especially the violent and action-packed ones.</p>
+            <p><strong>TV</strong> : Bart enjoys watching TV shows, with his favorites being Krusty the Clown and Itchy & Scratchy.</p>
+        </div>
+        <div class="card-stack">
+            <div class="stack-card">
+                <img src="https://m.media-amazon.com/images/M/MV5BYTZlNGMwMTgtNzc3Mi00ODhjLTk5YmQtYzcxNTY2NmQ1NzViXkEyXkFqcGdeQXVyOTk5MTEwMjU@._V1_.jpg"/>
+            </div>
+            <div class="stack-card">
+                <img src="https://www.previewsworld.com/SiteImage/MainImage/STK394269"/>
+            </div>
+            <div class="stack-card">
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8574b95f-5992-40db-8961-c5cb11877b1f/dr2yiz-8f793f11-5149-4b35-99bb-e5910d9af7ac.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzg1NzRiOTVmLTU5OTItNDBkYi04OTYxLWM1Y2IxMTg3N2IxZlwvZHIyeWl6LThmNzkzZjExLTUxNDktNGIzNS05OWJiLWU1OTEwZDlhZjdhYy5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.WW8VouOEQafbFZWqccOFldu_q7JCU0mOpvaieFRDruI" />
+            </div>
+            <div class="stack-card">
+                <img src="https://pyxis.nymag.com/v1/imgs/e8c/b48/cac27af1747dba95360806189a5415138a-19-the-simpsons.rsquare.w400.jpg" />
+            </div>
+        </div>
+        <div class="fixed-image">
+            <a href="menu.html">
+                <img src="media/image-Photoroom.png" alt="Bottom Left Image" class="bottom-left-img">
+            </a>
+        </div>
+    </main>
+    <script>
+        const cardStack = document.querySelector(".card-stack");
+        const stackCards = Array.from(cardStack.children)
+            .reverse()
+            .filter((child) => child.classList.contains("stack-card"));
+
+        stackCards.forEach((card) => cardStack.appendChild(card));
+
+        function moveCard() {
+            const lastCard = cardStack.lastElementChild;
+            if (lastCard.classList.contains("stack-card")) {
+                lastCard.classList.add("card-swap");
+
+                setTimeout(() => {
+                    lastCard.classList.remove("card-swap");
+                    cardStack.insertBefore(lastCard, cardStack.firstElementChild);
+                }, 1200);
+            }
+        }
+
+        let autoplayInterval = setInterval(moveCard, 4000);
+
+        cardStack.addEventListener("click", function (e) {
+            const card = e.target.closest(".stack-card");
+            if (card && card === cardStack.lastElementChild) {
+                card.classList.add("card-swap");
+
+                setTimeout(() => {
+                    card.classList.remove("card-swap");
+                    cardStack.insertBefore(card, cardStack.firstElementChild);
+                }, 1200);
+            }
+        });
+    </script>
+</body>
+</html>
+<!--
+-The header within this section has a gradient text effect and is styled to be large and bold.
+-The section element takes up the full height of the viewport.The wrapper class has been used to center its content vertically and horizontally within a
+maximum width of 1200px. Flexbox is used to align and justfy its children elements.
+-The card container uses CSS Grid to arrange the cards in a two-column layout, which changes to a single column on narrower screens. This is an important 
+decision for responsive designs. Indeed, each card is an anchor tag styled to take up full height and width, with a padding and a scale-up effect on hover.
+-When the cursor is on the cards, they get larger. 
+-The main heding (h1 with class main-heading) is centered and has been colored white nd uses a large font for better visibility.
+-->
