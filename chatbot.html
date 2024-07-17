@@ -3,34 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bart-Embedded Gradio Chatbot</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    </style>
+    <title>Bart Simpson Chatbot</title>
 </head>
 <body>
-    <iframe src="" id="gradio-frame"></iframe>
-
-    <script>
-        fetch('config.json')
-            .then(response => response.json())
-            .then(config => {
-                document.getElementById('gradio-frame').src = config.LIVE_URL;
-            })
-            .catch(error => {
-                console.error('Error loading config.json:', error);
-            });
-    </script>
+    <iframe
+        src="https://arhanovich-bart-simpson.hf.space"
+        frameborder="0"
+        width="100%"
+        height="100%"
+        style="position:absolute; top:0; left:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"
+        allowfullscreen
+    ></iframe>
 </body>
 </html>
